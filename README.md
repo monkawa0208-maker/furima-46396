@@ -13,7 +13,6 @@
 
 ### Association
 has_many :items
-has_many :comments
 has_many :orders
 
 
@@ -24,16 +23,16 @@ has_many :orders
 | ---------------- | ---------- | ------------------------------ |
 | name             | string     | null: false                    |
 | description      | text       | null: false                    |
-| category_id      | integer    | null: false, foreign_key: true |
+| category_id      | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
+| address_id       | integer    | null: false                    |
+| shipping_day_id  | integer    | null: false                    |
+| shipping_fee_id  | integer    | null: false                    |
 | price            | integer    | null: false                    |
-| status_id        | integer    | null: false, foreign_key: true |
-| shipping_days_id | integer    | null: false, foreign_key: true |
-| shipping_fee_id  | integer    | null: false, foreign_key: true |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
-has_many :comments
 has_one :order
 
 
