@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   NAME_REGEX  = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
   KANA_REGEX  = /\A[ァ-ヶー]+\z/
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/
 
   validates :nickname, presence: true
-  validates :password, format: { with: PASSWORD_REGEX, message: 'は半角英数字混合で入力してください' }
+  validates :password, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }
 
   with_options presence: true do
     validates :last_name,       format: { with: NAME_REGEX, message: 'は全角（漢字・ひらがな・カタカナ）で入力してください' }
