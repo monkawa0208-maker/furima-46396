@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
     validates :category_id
@@ -29,7 +30,6 @@ class Item < ApplicationRecord
     validates :prefecture_id
   end
 
-  # 価格の形式・範囲
   validates :price,
             numericality: {
               only_integer: true,
