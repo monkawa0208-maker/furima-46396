@@ -16,10 +16,10 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+        ¥<%= @item.price %>
       </span>
       <span class="item-postage">
-        ¥<%= @item.price %>
+        <%= @item.shipping_fee.name %>
       </span>
     </div>
 
