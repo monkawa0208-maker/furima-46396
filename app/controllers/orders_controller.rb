@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
-  before_action :redirect_item_owner, only: [:index, :create]
+  before_action :redirect_root, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
     )
   end
 
-  def redirect_item_owner
-    redirect_to root_path if current_user == @item.user
+  def redirect_root
+    redirect_to root_path if current_user == @item.user || @item.order.present?
   end
 end
