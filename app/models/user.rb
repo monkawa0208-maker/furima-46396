@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+  has_many :orders
+
   NAME_REGEX  = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
   KANA_REGEX  = /\A[ァ-ヶー]+\z/
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/

@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def authorize_item_owner!
-    redirect_to root_path if @item.user != current_user
+    redirect_to root_path if @item.user != current_user || @item.order.present?
   end
 
   def item_params
